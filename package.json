@@ -2,6 +2,9 @@
   "name": "aws",
   "version": "0.0.1",
   "description": "Socket.io",
+  "engines": {
+    "node": "12.11.1"
+    },
   "author": {
     "name": "senhaji"
   },
@@ -10,5 +13,8 @@
     "html-entities": "^1.2.1",
     "nodemon": "^2.0.2",
     "socket.io": "^2.3.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+ }
 }
