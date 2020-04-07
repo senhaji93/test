@@ -15,10 +15,7 @@ var users = {};
 var gameIdCounter = 1;
 
 app.use(express.static(__dirname + '/public'));
-app.get('/game/:id', function(req, res){
-  res.send('id: ' + req.query.id);
-  console("fjj")
-});
+
 
 http.listen(port, function(){
   console.log('listening on *:' + port);
@@ -129,6 +126,8 @@ io.on('connection', function(socket) {
   });
 
   joinWaitingPlayers();
+  
+  
 });
 
 
@@ -153,8 +152,6 @@ function joinWaitingPlayers() {
     users[players[1].id].player = 1;
     users[players[0].id].inGame = game;
     users[players[1].id].inGame = game;
-   
-
     
     io.to('game' + game.id).emit('join', game.id);
 
@@ -165,6 +162,7 @@ function joinWaitingPlayers() {
     console.log((new Date().toISOString()) + " " + players[0].id + " and " + players[1].id + " have joined game ID " + game.id);
   }
 }
+
 
 /**
  * Leave user's game
@@ -206,8 +204,9 @@ function checkGameOver(game) {
  */
 function getClientsInRoom(room) {
   var clients = [];
-  for (var id in io.sockets.adapter.rooms[room]) {
-    clients.push(io.sockets.adapter.nsp.connected[id]);
+  for (var id in io.sockets.adapter.rooms[room].sockets) {
+    var SocketofClient = io.sockets.connected[id];
+    clients.push(SocketofClient);
   }
   return clients;
 }

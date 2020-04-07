@@ -1,4 +1,5 @@
-var socket = io();
+
+var socket = io.connect('http://localhost:8900')
 
 $(function() {
   /**
@@ -8,6 +9,7 @@ $(function() {
     console.log('Connected to server.');
     $('#disconnected').hide();
     $('#waiting-room').show();   
+   
   });
 
   /**
@@ -30,7 +32,6 @@ $(function() {
     $('#waiting-room').hide();
     $('#game').show();
     $('#game-number').html(gameId);
-
   })
 
   /**
@@ -62,7 +63,6 @@ $(function() {
    */
   socket.on('gameover', function(isWinner) {
     Game.setGameOver(isWinner);
-    console.log('socket info+++++++++++++++ = ', (socket.handshake.headers.referer));
   });
   
   /**

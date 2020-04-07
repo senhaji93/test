@@ -1,21 +1,26 @@
 {
   "name": "aws",
-  "version": "0.0.1",
-  "description": "Socket.io",
-  "engines": {
-    "node": "12.11.1"
+  "version": "1.0.0",
+  "description": "dh",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": {
-    "name": "senhaji"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senhaji93/test.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/senhaji93/test/issues"
+  },
+  "homepage": "https://github.com/senhaji93/test#readme",
   "dependencies": {
     "express": "^4.17.1",
     "html-entities": "^1.2.1",
     "nodemon": "^2.0.2",
-    "serve-favicon": "^2.5.0",
     "socket.io": "^2.3.0"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
